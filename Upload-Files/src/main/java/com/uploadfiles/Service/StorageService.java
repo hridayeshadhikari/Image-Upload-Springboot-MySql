@@ -30,7 +30,7 @@ public class StorageService {
 
     public byte[] downloadFile(String fileName) {
         Optional<FileData> getImageData= imageRepository.findByName(fileName);
-        byte[] image=ImageUtils.decompressImage(getImageData.get().getImageData());
-        return image;
+        byte[] images=ImageUtils.decompressImage(getImageData.get().getImageData());
+        return images;
     }
 }

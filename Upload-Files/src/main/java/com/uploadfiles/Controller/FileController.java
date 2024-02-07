@@ -22,11 +22,11 @@ public class FileController {
                 .body(uploadImage);
 
     }
-    @GetMapping("/{fileName}")
+    @GetMapping("download/{fileName}")
     public ResponseEntity<?> downloadImage(@PathVariable String fileName){
-        byte[] imageData=storageService.downloadFile(fileName);
+        byte[] download=storageService.downloadFile(fileName);
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/png"))
-                .body(imageData);
+                .body(download);
     }
 }
